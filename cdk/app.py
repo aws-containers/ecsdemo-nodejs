@@ -82,8 +82,7 @@ class NodejsService(core.Stack):
         
         self.container = self.fargate_task_def.add_container(
             "NodeServiceContainerDef",
-            image=aws_ecs.ContainerImage.from_registry("brentley/ecsdemo-nodejs:cdk"),
-            # image=aws_ecs.ContainerImage.from_registry("{}.dkr.ecr.{}.amazonaws.com/ecsdemo-nodejs".format(getenv('AWS_ACCOUNT_ID'), getenv('AWS_DEFAULT_REGION'))),
+            image=aws_ecs.ContainerImage.from_registry("public.ecr.aws/aws-containers/ecsdemo-nodejs"),
             memory_reservation_mib=128,
             logging=aws_ecs.LogDriver.aws_logs(
                 stream_prefix='/nodejs-container',
