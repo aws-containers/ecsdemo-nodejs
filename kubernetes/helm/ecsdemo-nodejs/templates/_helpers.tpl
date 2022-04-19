@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "backend-nodejs.name" -}}
+{{- define "ecsdemo-nodejs.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "backend-nodejs.fullname" -}}
+{{- define "ecsdemo-nodejs.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "backend-nodejs.chart" -}}
+{{- define "ecsdemo-nodejs.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "backend-nodejs.labels" -}}
-helm.sh/chart: {{ include "backend-nodejs.chart" . }}
-{{ include "backend-nodejs.selectorLabels" . }}
+{{- define "ecsdemo-nodejs.labels" -}}
+helm.sh/chart: {{ include "ecsdemo-nodejs.chart" . }}
+{{ include "ecsdemo-nodejs.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "backend-nodejs.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "backend-nodejs.name" . }}
+{{- define "ecsdemo-nodejs.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "ecsdemo-nodejs.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "backend-nodejs.serviceAccountName" -}}
+{{- define "ecsdemo-nodejs.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "backend-nodejs.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "ecsdemo-nodejs.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
