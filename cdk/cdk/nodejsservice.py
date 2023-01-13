@@ -29,6 +29,19 @@ class NodejsService(Stack):
             compatibility=aws_ecs.Compatibility.EC2_AND_FARGATE,
             cpu='256',
             memory_mib='512',
+            # appmesh-proxy-uncomment
+            # proxy_configuration=aws_ecs.AppMeshProxyConfiguration(
+            #     container_name="envoy",  # App Mesh side card name that will proxy the requests
+            #     properties=aws_ecs.AppMeshProxyConfigurationProps(
+            #         app_ports=[3000],  # nodejs application port
+            #         proxy_ingress_port=15000,  # side card default config
+            #         proxy_egress_port=15001,  # side card default config
+            #         # side card default config
+            #         egress_ignored_i_ps=["169.254.170.2", "169.254.169.254"],
+            #         ignored_uid=1337  # side card default config
+            #     )
+            # )
+            # appmesh-proxy-uncomment
         )
 
         log_group = aws_logs.LogGroup(
