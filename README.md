@@ -1,5 +1,8 @@
-![Build Status](https://codebuild.us-east-2.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoidDRkc2xFKzlVaVpRZXRiK1VrV3crbVNQMnJBNHdzQjQrVlQwaXdqVHdlYW94RU9jODN0R0I4WGJieEJLdjRldktxN3pCMWNTbW9YVUVPUmNzcVFCd0FjPSIsIml2UGFyYW1ldGVyU3BlYyI6Ikg0S29yNDFQUEVHMWVoN2wiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
+## Nodejs module for the ECS workshop
 
-# Amazon ECS Workshop
+This repository is part of the ECS Workshop.
 
-This is part of an Amazon ECS workshop at https://ecsworkshop.com
+This repository will deploy a nodejs application in a Fargate service to prepare your environment for the [ECS Workshop](https://ecsworkshop.com/).
+
+Instructions on how to use the code in this repository can be found here: [https://ecsworkshop.com/microservices/nodejs/](https://ecsworkshop.com/microservices/nodejs/)
+
