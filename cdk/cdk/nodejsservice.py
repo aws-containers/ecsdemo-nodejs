@@ -104,12 +104,12 @@ class NodejsService(Stack):
         #     scale_in_cooldown=Duration.seconds(30),
         #     scale_out_cooldown=Duration.seconds(30)
         # )
+        # self.autoscale = autoscale
 
         self.fargate_task_def = fargate_task_def
         self.log_group = log_group
         self.container = container
         self.fargate_service = fargate_service
-        # self.autoscale = autoscale
 
         # App Mesh Implementation
         # self.appmesh()
