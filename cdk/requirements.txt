@@ -1,7 +1,2 @@
-aws_cdk.aws_ecs_patterns
-aws_cdk.aws_ec2
-aws_cdk.aws_ecs
-aws_cdk.aws_ecs_patterns
-aws_cdk.aws_servicediscovery
-aws_cdk.core
-aws-cdk.aws_appmesh
+aws-cdk-lib==2.51.1
+constructs>=10.0.0,<11.0.0
