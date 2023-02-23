@@ -29,7 +29,7 @@ class NodejsService(Stack):
             compatibility=aws_ecs.Compatibility.EC2_AND_FARGATE,
             cpu='256',
             memory_mib='512',
-            # appmesh-proxy-uncomment
+            #appmesh-proxy-uncomment
             # proxy_configuration=aws_ecs.AppMeshProxyConfiguration(
             #     container_name="envoy",  # App Mesh side card name that will proxy the requests
             #     properties=aws_ecs.AppMeshProxyConfigurationProps(
@@ -41,7 +41,7 @@ class NodejsService(Stack):
             #         ignored_uid=1337  # side card default config
             #     )
             # )
-            # appmesh-proxy-uncomment
+            #appmesh-proxy-uncomment
         )
 
         log_group = aws_logs.LogGroup(
@@ -235,7 +235,7 @@ class NodejsService(Stack):
         # Adding mesh virtual service
         self.mesh_nodejs_vs = aws_appmesh.VirtualService(self, "mesh-nodejs-vs",
                                                          virtual_service_provider=aws_appmesh.VirtualServiceProvider.virtual_node(
-                                                             self.mesh_nodejs_vn),
+                                                             mesh_nodejs_vn),
                                                          virtual_service_name="{}.{}".format(
                                                              self.fargate_service.cloud_map_service.service_name, self.fargate_service.cloud_map_service.namespace.namespace_name)
                                                          )
