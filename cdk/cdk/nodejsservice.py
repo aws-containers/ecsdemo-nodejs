@@ -231,7 +231,11 @@ class NodejsService(Stack):
         # self.fargate_task_def.task_role.add_managed_policy(aws_iam.ManagedPolicy.from_aws_managed_policy_name("AWSXRayDaemonWriteAccess"))
         self.fargate_task_def.task_role.add_managed_policy(
             aws_iam.ManagedPolicy.from_aws_managed_policy_name("AWSAppMeshEnvoyAccess"))
-
+        
+        self.mesh = mesh
+        self.mesh_vgw = mesh_vgw
+        self.mesh_nodejs_vn = mesh_nodejs_vn
+        self.envoy_container = envoy_container
         # Adding mesh virtual service
         self.mesh_nodejs_vs = aws_appmesh.VirtualService(self, "mesh-nodejs-vs",
                                                          virtual_service_provider=aws_appmesh.VirtualServiceProvider.virtual_node(
@@ -246,8 +250,8 @@ class NodejsService(Stack):
         CfnOutput(self, "MeshNodeJsVSName",
                   value=self.mesh_nodejs_vs.virtual_service_name, export_name="MeshNodeJsVSName")
 
-        self.mesh = mesh
-        self.mesh_vgw = mesh_vgw
-        self.mesh_nodejs_vn = mesh_nodejs_vn
-        self.envoy_container = envoy_container
+#         self.mesh = mesh
+#         self.mesh_vgw = mesh_vgw
+#         self.mesh_nodejs_vn = mesh_nodejs_vn
+#         self.envoy_container = envoy_container
         # self.xray_container = xray_container
