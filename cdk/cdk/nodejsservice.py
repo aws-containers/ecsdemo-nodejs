@@ -235,7 +235,7 @@ class NodejsService(Stack):
         # Adding mesh virtual service
         self.mesh_nodejs_vs = aws_appmesh.VirtualService(self, "mesh-nodejs-vs",
                                                          virtual_service_provider=aws_appmesh.VirtualServiceProvider.virtual_node(
-                                                             self.mesh_nodejs_vn),
+                                                             mesh_nodejs_vn),
                                                          virtual_service_name="{}.{}".format(
                                                              self.fargate_service.cloud_map_service.service_name, self.fargate_service.cloud_map_service.namespace.namespace_name)
                                                          )
